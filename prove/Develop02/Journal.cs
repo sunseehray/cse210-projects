@@ -10,8 +10,13 @@ public class Journal
         Entry record = new Entry();
         PromptGenerator prompt = new PromptGenerator();
         DateTime currentDate = DateTime.Now;
+
         record._currentDate = currentDate.ToString();
         record._prompt = prompt.GeneratePrompt();
+
+        Console.Write("How are you feeling? ");
+        record._mood = Console.ReadLine();
+
         Console.WriteLine($"{record._prompt}");
         record._response = Console.ReadLine();
 
@@ -38,7 +43,7 @@ public class Journal
         {
             foreach(Entry n in _journal)
             {
-                outputFile.WriteLine($"{n._currentDate}|{n._prompt}|{n._response}");
+                outputFile.WriteLine($"{n._currentDate}|{n._mood}|{n._prompt}|{n._response}");
             }
         }
     }
@@ -57,10 +62,12 @@ public class Journal
             Entry record = new Entry();
             string[] parts = line.Split("|");
             string journalDate = parts[0];
-            string journalPrompt = parts[1];
-            string journalResponse = parts[2];
+            string journalMood = parts[1];
+            string journalPrompt = parts[2];
+            string journalResponse = parts[3];
 
             record._currentDate = journalDate;
+            record._mood = journalMood;
             record._prompt = journalPrompt;
             record._response = journalResponse;
 
