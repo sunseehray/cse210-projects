@@ -8,23 +8,26 @@ class Program
         Console.WriteLine("Hello Learning03 World!");
 
         Fraction fraction1 = new Fraction();
-
-        fraction1.InitializeWithNoParameters();
         fraction1.Display();
 
-        fraction1.InitializeWithNumerator(5);
-        fraction1.Display();
+        Fraction fraction2 = new Fraction(5);
+        fraction2.Display();
 
-        fraction1.InitializeWithAllParameters(3,4);
-        fraction1.Display();
+        Fraction fraction3 = new Fraction(3,4);
+        fraction3.Display();
 
-        int top = fraction1.GetTop();
+
+        Fraction fraction4 = new Fraction();
+        fraction4.SetTop(1);
+        fraction4.SetBottom(3);
+        fraction4.Display();
+        
+        int top = fraction4.GetTop();
         Console.WriteLine(top);
-        int bottom = fraction1.GetBottom();
+        int bottom = fraction4.GetBottom();
         Console.WriteLine(bottom);
 
-        fraction1.SetTop(1);
-        fraction1.SetBottom(3);
-        fraction1.Display();
+
+
     }
 }

@@ -5,19 +5,19 @@ public class Fraction
     private int _top;
     private int _bottom;
 
-    public void InitializeWithNoParameters()
+    public Fraction()
     {
         _top = 1;
         _bottom = 1;
     }
 
-    public void InitializeWithNumerator(int numerator)
+    public Fraction(int numerator)
     {
         _top = numerator;
         _bottom = 1;
     }
 
-    public void InitializeWithAllParameters(int numerator, int denominator)
+    public Fraction(int numerator, int denominator)
     {
         _top = numerator;
         _bottom = denominator;
