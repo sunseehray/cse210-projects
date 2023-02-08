@@ -73,9 +73,9 @@ public class Scripture
 
         if (completelyHidden == true)
         {
-            Console.WriteLine(_reference + " " + GetRenderedText());
-            // Console.WriteLine("Thank you, good bye!");
-            // Environment.Exit(0);
+            // Console.WriteLine(_reference + " " + GetRenderedText());
+            Console.WriteLine("Thank you, good bye!");
+            Environment.Exit(0);
         }
         else
         {
