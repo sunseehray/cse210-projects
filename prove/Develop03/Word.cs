@@ -20,22 +20,6 @@ public class Word
             renderedWord += "_";
         }
         return renderedWord;
-        // string[] characters;
-        // characters = _word.Split();
-        // string finalWord = "";
-        // for (int i = 0; i < characters.Length; i++)
-        // {
-        //     if (_isHidden == true)
-        //     {
-        //         characters[i] = "_";
-        //     }
-        //     else
-        //     {
-        //         characters[i] = characters[i];
-        //     }
-        //     finalWord += characters[i];
-        // }
-        // return finalWord;
     }
     
 }
