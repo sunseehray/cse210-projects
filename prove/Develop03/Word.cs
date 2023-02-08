@@ -11,24 +11,31 @@ public class Word
         _isHidden = isHidden;
     }
 
-    public string GetRenderedText(Word word)
+    public string GetRenderedText()
     {
-        string[] characters;
-        characters = _word.Split();
-        string finalWord = "";
-        for (int i = 0; i < characters.Length; i++)
+        int len = _word.Length;
+        string renderedWord = "";
+        for(int i = 0; i < len; i++)
         {
-            if (_isHidden == true)
-            {
-                characters[i] = "_";
-            }
-            else
-            {
-                characters[i] = characters[i];
-            }
-            finalWord += characters[i];
+            renderedWord += "_";
         }
-        return finalWord;
+        return renderedWord;
+        // string[] characters;
+        // characters = _word.Split();
+        // string finalWord = "";
+        // for (int i = 0; i < characters.Length; i++)
+        // {
+        //     if (_isHidden == true)
+        //     {
+        //         characters[i] = "_";
+        //     }
+        //     else
+        //     {
+        //         characters[i] = characters[i];
+        //     }
+        //     finalWord += characters[i];
+        // }
+        // return finalWord;
     }
     
 }
