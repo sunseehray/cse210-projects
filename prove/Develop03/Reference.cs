@@ -1,5 +1,6 @@
 using System;
 
+// build References of up to two verses only - limit
 public class Reference
 {
     private string _book;
@@ -10,6 +11,7 @@ public class Reference
     private string _proverbs_3_5 = "Trust in the Lord with all thine heart; and lean not unto thine own understanding.";
     private string _proverbs_3_6 = "In all thy ways acknowledge him, and he shall direct thy paths.";
 
+    // construct default scripture
     public Reference()
     {
         _book = "Proverbs";
@@ -17,7 +19,7 @@ public class Reference
         _verseNum = 5;
         _text = _proverbs_3_5;
     }
-
+    // allow up to two verses assuming they are consecutive
     public Reference(int i = 2)
     {
         _book = "Proverbs";
@@ -25,6 +27,7 @@ public class Reference
         _verseNum = 6;
         _text = _proverbs_3_6;
     }
+    // allow user to build own scripture references in the future
     public Reference(string book, int chapter, int verseNum, string text)
     {
         _book = book;

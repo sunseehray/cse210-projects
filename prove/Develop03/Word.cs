@@ -1,5 +1,5 @@
 using System;
-
+// this class saves a word that is hidden and renders it back as hidden text
 public class Word
 {
     private string _word;

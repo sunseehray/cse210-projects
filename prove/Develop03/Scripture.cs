@@ -29,8 +29,6 @@ public class Scripture
         _numberOfHiddenWords = 0;
         CreateArrays(_content);
     }
-
-    // constructor?
     public void CreateArrays(string source)
     {
         _words = source.Split();
@@ -46,6 +44,7 @@ public class Scripture
         }
     }
 
+    // for checking if the code works
     public void Display()
     {
         Console.Write(_reference + " " + _content);
@@ -59,10 +58,12 @@ public class Scripture
     public string GetRenderedText()
     {
         string renderedText = "";
+
         foreach(string element in _renderedWords)
         {
             renderedText += element + " ";
         }
+
         return renderedText;
     }
     public void HideWords(int numberOfWordsToHide) 
@@ -73,7 +74,9 @@ public class Scripture
 
         if (completelyHidden == true)
         {
-            // Console.WriteLine(_reference + " " + GetRenderedText());
+            // end the program if all words are hidden
+            Console.WriteLine(_reference + " " + GetRenderedText());
+            Console.WriteLine();
             Console.WriteLine("Thank you, good bye!");
             Environment.Exit(0);
         }
@@ -81,19 +84,31 @@ public class Scripture
         {
             while (_numberOfHiddenWords < numberOfWordsToHide)
             {
+                // track if a word was changed to hidden
                 int didChange = 0;
+
+                // find a random word that is available to hide
                 while (didChange == 0)
                 {
                     Random random = new Random();
                     int index = random.Next(0, wordCount);
+
+                    /* if the randomly selected word is not yet hidden, hide it, 
+                    otherwise, find another word until something gets changed to hidden */
                     if (_whatIsHidden[index] == false)
                     {
                         _whatIsHidden[index] = true;
+                        // track that a word was changed
                         didChange = 1;
+
+                        // use the Word GetRenderedText behavior to set the rendered text of the hidden word
                         Word hiddenWord = new Word();
                         hiddenWord.SetWord(_words[index]);
+
                         string renderedWord = hiddenWord.GetRenderedText();
+                        // update the rendering of the word from the _renderedWords array
                         _renderedWords[index] = renderedWord;
+
                         _numberOfHiddenWords++;
                     }
                 }
@@ -120,7 +135,8 @@ public class Scripture
         {
             return true;
         }
-        else{
+        else
+        {
             return false;
         }
     }
