@@ -38,10 +38,11 @@ public class Activity
             AskDuration();
             GetReady();
             activity.PromptBreathing();
+            EndActivity();
         }
         else
         {
-            Console.WriteLine("Invalid input.");
+            Console.WriteLine("Will it ever get here? ");
         }
     }
 
