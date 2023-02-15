@@ -23,6 +23,18 @@ public class BreathingActivity : Activity
 
     public void PromptBreathing()
     {
+        Console.WriteLine();
+        Console.WriteLine();
         Console.Write("Breathe in...");
+        GenerateCountdownTimer(2);
+        Console.WriteLine();
+        Console.Write("Breathe out...");
+        GenerateCountdownTimer(3);
+        Console.WriteLine();
+        Console.Write("Breathe in...");
+        GenerateCountdownTimer(4);
+        Console.WriteLine();
+        Console.Write("Breathe out...");
+        GenerateCountdownTimer(6);
     }
 }

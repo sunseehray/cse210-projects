@@ -1,55 +1,114 @@
 using System;
+using System.Diagnostics;
 
 public class Activity
 {
+    private string _name;
+    private string _description;
     private int _duration;
-    public void ShowDetails(string name, string description)
+    public void ShowDetails()
     {
-        Console.WriteLine($"Welcome to the {name}.");
+        Console.WriteLine($"Welcome to the {_name}.");
         Console.WriteLine();
         Console.WriteLine();
-        Console.WriteLine(description);
+        Console.WriteLine(_description);
     }
-    public int AskDuration()
+    public void AskDuration()
     {
+        Console.WriteLine();
         Console.Write("How long, in seconds, would you like for your session? ");
-        string duration = Console.ReadLine();
-        int numberDuration = Convert.ToInt32(duration);
-        return numberDuration;
+        string durationString = Console.ReadLine();
+        SetDuration(Convert.ToInt32(durationString));
     }
-    
     public void SetDuration(int duration)
     {
         _duration = duration;
     }
     public void RunActivity(string option)
     {
-        // initiate local variables
-        string name = "Name";
-        string description = "Description";
-
         Console.Clear();
-        int duration = AskDuration();
-        SetDuration(duration);
+        
         // start the activity based on chosen option
         if (option == "1")
         {
             BreathingActivity activity = new BreathingActivity();
-            name = activity.GetName();
-            description = activity.GetDescription();
-            ShowDetails(name, description);
+            _name = activity.GetName();
+            _description = activity.GetDescription();
+            ShowDetails();
+            AskDuration();
+            GetReady();
+            activity.PromptBreathing();
         }
         else
         {
-            Console.WriteLine("OKAY");
+            Console.WriteLine("Invalid input.");
         }
+    }
 
-        // end the activity
+    public void EndActivity()
+    {
         Console.WriteLine();
         Console.WriteLine();
         Console.WriteLine($"Well done!!");
-        Console.WriteLine($"You have completed another {_duration} seconds of the {name}.");
-        Console.Write("Press enter to continue");
+        Console.WriteLine($"You have completed another {_duration} seconds of the {_name}.");
+        Console.Write("Press enter to continue. ");
         Console.ReadLine();
     }
+
+    public void GenerateSpinner(int totalSeconds)
+    {
+        Stopwatch timer = new Stopwatch();
+        timer.Start();
+        
+        int spinnerPosition = 25;
+        int spinWait = 500;
+
+        spinnerPosition = Console.CursorLeft;
+
+        while(timer.Elapsed.TotalSeconds <= totalSeconds)
+        {
+            char[] spinChars = new char[]{'|','/','-','\\'};
+            foreach (char spinChar in spinChars)
+            {
+                Console.CursorLeft = spinnerPosition;
+                Console.Write(spinChar);
+                System.Threading.Thread.Sleep(spinWait);
+            }
+        }
+        Console.CursorLeft = spinnerPosition;
+        Console.Write(" ");
+        timer.Stop();
+    }
+
+    public void GenerateCountdownTimer(int totalSeconds)
+    {
+        Stopwatch timer = new Stopwatch();
+        timer.Start();
+
+        int timerPosition = 25;
+        int timerWait = 1000;
+
+        timerPosition = Console.CursorLeft;
+
+        while(timer.Elapsed.TotalSeconds <= totalSeconds)
+        {
+            for (int i = 0; i <= totalSeconds; i++)
+            {
+                Console.CursorLeft = timerPosition;
+                Console.Write(totalSeconds - i);
+                System.Threading.Thread.Sleep(timerWait);
+            }
+        }
+        Console.CursorLeft = timerPosition;
+        Console.Write(" ");
+        timer.Stop();
+    }
+
+    public void GetReady()
+    {
+        Console.Clear();
+        Console.WriteLine("Get Ready");
+        GenerateSpinner(5);
+    }
+    
 }
