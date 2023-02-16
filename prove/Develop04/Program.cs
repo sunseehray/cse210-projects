@@ -21,9 +21,13 @@ class Program
 
             if (input == "1")
             {
-                Console.WriteLine("You chose 1");
-                Activity activity = new Activity();
-                activity.RunActivity(input);
+                BreathingActivity activity = new BreathingActivity();
+                activity.SetName("Breathing Activity");
+                activity.SetDescription("This activity will help you relax by walking through your breathing in and out slowly. Clear your mind and focus on your breathing.");
+                activity.RunActivity();
+                activity.PromptBreathing();
+                activity.EndActivity();
+
                 
             } else if (input == "2")
             {

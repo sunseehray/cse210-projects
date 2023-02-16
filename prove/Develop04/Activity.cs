@@ -6,6 +6,22 @@ public class Activity
     private string _name;
     private string _description;
     private int _duration;
+    public void SetName(string name)
+    {
+        _name = name;
+    }
+    public void SetDescription(string description)
+    {
+        _description = description;
+    }
+    public string GetName()
+    {
+        return _name;
+    }
+    public string GetDescription()
+    {
+        return _description;
+    }
     public void ShowDetails()
     {
         Console.WriteLine($"Welcome to the {_name}.");
@@ -24,26 +40,16 @@ public class Activity
     {
         _duration = duration;
     }
-    public void RunActivity(string option)
+    public int GetDuration()
+    {
+        return _duration;
+    }
+    public void RunActivity()
     {
         Console.Clear();
-        
-        // start the activity based on chosen option
-        if (option == "1")
-        {
-            BreathingActivity activity = new BreathingActivity();
-            _name = activity.GetName();
-            _description = activity.GetDescription();
-            ShowDetails();
-            AskDuration();
-            GetReady();
-            activity.PromptBreathing();
-            EndActivity();
-        }
-        else
-        {
-            Console.WriteLine("Will it ever get here? ");
-        }
+        ShowDetails();
+        AskDuration();
+        GetReady();
     }
 
     public void EndActivity()
