@@ -6,6 +6,10 @@ public class Activity
     private string _name;
     private string _description;
     private int _duration;
+    public Activity()
+    {
+        _duration = 60;
+    }
     public void SetName(string name)
     {
         _name = name;
@@ -117,5 +121,24 @@ public class Activity
         Console.WriteLine("Get Ready");
         GenerateSpinner(5);
     }
+    public DateTime GetFutureTime()
+    {
+        DateTime startTime = new DateTime();
+        startTime = DateTime.Now;
+        
+        DateTime futureTime = new DateTime();
+        futureTime = startTime.AddSeconds(_duration);
+
+        return futureTime;
+    }
+
+    public DateTime GetCurrentTime()
+    {
+        DateTime currentTime = new DateTime();
+        currentTime = DateTime.Now;
+        return currentTime;
+    }
+
+
     
 }

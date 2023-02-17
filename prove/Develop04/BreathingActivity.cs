@@ -1,18 +1,16 @@
 using System;
-
 public class BreathingActivity : Activity
-{
+{  
+    public BreathingActivity()
+    {
+        SetName("Breathing Activity");
+        SetDescription("This activity will help you relax by walking through your breathing in and out slowly. Clear your mind and focus on your breathing.");
+    }
     public void PromptBreathing()
     {
-        int breathingDuration = GetDuration();
-        DateTime startTime = new DateTime();
-        startTime = DateTime.Now;
-        DateTime futureTime = new DateTime();
-        futureTime = startTime.AddSeconds(breathingDuration);
-
-        DateTime currentTime = new DateTime();
-        currentTime = DateTime.Now;
-
+        DateTime futureTime = GetFutureTime();
+        DateTime currentTime = GetCurrentTime();
+        
         Console.WriteLine();
         Console.WriteLine();
         Console.Write("Breathe in...");

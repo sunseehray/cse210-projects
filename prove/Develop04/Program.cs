@@ -22,8 +22,6 @@ class Program
             if (input == "1")
             {
                 BreathingActivity activity = new BreathingActivity();
-                activity.SetName("Breathing Activity");
-                activity.SetDescription("This activity will help you relax by walking through your breathing in and out slowly. Clear your mind and focus on your breathing.");
                 activity.RunActivity();
                 activity.PromptBreathing();
                 activity.EndActivity();
@@ -31,7 +29,11 @@ class Program
                 
             } else if (input == "2")
             {
-                Console.WriteLine("You chose 2");
+                ReflectingActivity activity = new ReflectingActivity();
+                activity.RunActivity();
+                activity.PromptReflecting();
+                activity.EndActivity();
+
             } else if (input == "3")
             {
                 Console.WriteLine("You chose 3");
