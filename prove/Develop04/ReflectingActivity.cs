@@ -42,7 +42,9 @@ public class ReflectingActivity : Activity
         string prompt = GeneratePrompt();
         Console.WriteLine();
         Console.WriteLine("Consider the following prompt:");
+        Console.WriteLine();
         Console.WriteLine($"--- {prompt} ---");
+        Console.WriteLine();
         Console.WriteLine("When you have something in mind, press enter to continue.");
         Console.ReadLine();
         Console.Clear();
