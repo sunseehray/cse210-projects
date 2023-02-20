@@ -18,7 +18,8 @@ class Program
             Console.Write("What would you like to do? ");
 
             input = Console.ReadLine();
-
+            
+            //Breathing
             if (input == "1")
             {
                 BreathingActivity activity = new BreathingActivity();
@@ -27,20 +28,31 @@ class Program
                 activity.EndActivity();
 
                 
-            } else if (input == "2")
+            } 
+            // Reflecting
+            else if (input == "2")
             {
                 ReflectingActivity activity = new ReflectingActivity();
                 activity.RunActivity();
                 activity.PromptReflecting();
                 activity.EndActivity();
 
-            } else if (input == "3")
+            } 
+            // Listing
+            else if (input == "3")
             {
-                Console.WriteLine("You chose 3");
-            } else if (input == "4")
+                ListingActivity activity = new ListingActivity();
+                activity.RunActivity();
+                activity.PromptListing();
+                activity.EndActivity();
+            } 
+            // Quitting
+            else if (input == "4")
             {
                 Environment.Exit(0);
-            } else
+            } 
+            // if error input?
+            else
             {
                 Console.WriteLine("Please enter the number of the menu option. ");
             }

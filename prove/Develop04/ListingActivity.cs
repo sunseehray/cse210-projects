@@ -26,21 +26,19 @@ public class ListingActivity : Activity
     {   
         string prompt = GeneratePrompt();
         Console.WriteLine();
-        Console.WriteLine("Consider the following prompt:");
+        Console.WriteLine("List as many responses you can to the following prompt:");
         Console.WriteLine($"--- {prompt} ---");
-        Console.WriteLine("When you have something in mind, press enter to continue.");
-        Console.ReadLine();
-        Console.Clear();
-        
+        Console.Write("You may begin in: ");
+        GenerateCountdownTimer(5);
+        Console.WriteLine();
+                
         DateTime futureTime = GetFutureTime();
         DateTime currentTime = GetCurrentTime();
 
         while (currentTime <= futureTime)
         {
-            string question = GenerateQuestion();
-            Console.Write(question + " ");
-            GenerateSpinner(15);
-            Console.WriteLine();
+            Console.Write(">");
+            Console.ReadLine();
             currentTime = DateTime.Now;
         }
     }
