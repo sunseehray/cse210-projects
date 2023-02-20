@@ -8,7 +8,9 @@ public class Activity
     private int _duration;
     public Activity()
     {
-        _duration = 60;
+        _name = "";
+        _description = "";
+        _duration = 15;
     }
     public void SetName(string name)
     {
@@ -118,7 +120,7 @@ public class Activity
     public void GetReady()
     {
         Console.Clear();
-        Console.WriteLine("Get Ready");
+        Console.WriteLine("Get Ready...");
         GenerateSpinner(5);
     }
     public DateTime GetFutureTime()
