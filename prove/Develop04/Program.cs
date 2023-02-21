@@ -6,10 +6,23 @@ class Program
     {
         //display menu
         string input = "";
+        int breathingLog = 0;
+        int reflectingLog = 0;
+        int listingLog = 0;
+
+        void DisplayLog()
+        {
+            Console.WriteLine("ACTIVITY LOG FOR CURRENT SESSION");
+            Console.WriteLine($"Breathing: {breathingLog}");
+            Console.WriteLine($"Reflecting: {reflectingLog}");
+            Console.WriteLine($"Listing: {listingLog}");
+            Console.WriteLine();
+        }
 
         while (input != "4")
         {
             Console.Clear();
+            DisplayLog();
             Console.WriteLine("Menu Options:");
             Console.WriteLine("1. Start breathing activity");
             Console.WriteLine("2. Start reflecting activity");
@@ -27,6 +40,8 @@ class Program
                 activity.PromptBreathing();
                 activity.EndActivity();
 
+                breathingLog++;
+                DisplayLog();
                 
             } 
             // Reflecting
@@ -37,6 +52,7 @@ class Program
                 activity.PromptReflecting();
                 activity.EndActivity();
 
+                reflectingLog++;
             } 
             // Listing
             else if (input == "3")
@@ -45,6 +61,8 @@ class Program
                 activity.RunActivity();
                 activity.PromptListing();
                 activity.EndActivity();
+
+                listingLog++;
             } 
             // Quitting
             else if (input == "4")

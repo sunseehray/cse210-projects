@@ -63,8 +63,8 @@ public class Activity
         Console.WriteLine();
         Console.WriteLine($"Well done!!");
         GenerateSpinner(5);
-        Console.WriteLine($"You have completed another {_duration} seconds of the {_name}.");
         Console.WriteLine();
+        Console.WriteLine($"You have completed another {_duration} seconds of the {_name}.");
         GenerateSpinner(5);
     }
 
