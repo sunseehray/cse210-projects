@@ -15,7 +15,7 @@ class Program
             Console.WriteLine("2. Start reflecting activity");
             Console.WriteLine("3. Start listing activity");
             Console.WriteLine("4. Quit");
-            Console.Write("What would you like to do? ");
+            Console.Write("Select a choice from the menu: ");
 
             input = Console.ReadLine();
             

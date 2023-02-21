@@ -32,7 +32,6 @@ public class Activity
     {
         Console.WriteLine($"Welcome to the {_name}.");
         Console.WriteLine();
-        Console.WriteLine();
         Console.WriteLine(_description);
     }
     public void AskDuration()
@@ -63,9 +62,10 @@ public class Activity
         Console.WriteLine();
         Console.WriteLine();
         Console.WriteLine($"Well done!!");
+        GenerateSpinner(5);
         Console.WriteLine($"You have completed another {_duration} seconds of the {_name}.");
-        Console.Write("Press enter to continue. ");
-        Console.ReadLine();
+        Console.WriteLine();
+        GenerateSpinner(5);
     }
 
     public void GenerateSpinner(int totalSeconds)
