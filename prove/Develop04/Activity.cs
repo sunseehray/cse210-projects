@@ -70,6 +70,8 @@ public class Activity
 
     public void GenerateSpinner(int totalSeconds)
     {
+        // Idea taken from: https://www.c-sharpcorner.com/uploadfile/cbragg/console-application-waitbusy-spin-animation/
+
         Stopwatch timer = new Stopwatch();
         timer.Start();
         
