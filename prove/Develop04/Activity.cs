@@ -20,14 +20,6 @@ public class Activity
     {
         _description = description;
     }
-    public string GetName()
-    {
-        return _name;
-    }
-    public string GetDescription()
-    {
-        return _description;
-    }
     public void ShowDetails()
     {
         Console.WriteLine($"Welcome to the {_name}.");
