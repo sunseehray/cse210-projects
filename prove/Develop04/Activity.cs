@@ -70,29 +70,27 @@ public class Activity
 
     public void GenerateSpinner(int totalSeconds)
     {
-        // Idea taken from: https://www.c-sharpcorner.com/uploadfile/cbragg/console-application-waitbusy-spin-animation/
+        // Some ideas from: https://www.c-sharpcorner.com/uploadfile/cbragg/console-application-waitbusy-spin-animation/
 
-        Stopwatch timer = new Stopwatch();
-        timer.Start();
-        
         int spinnerPosition = 25;
         int spinWait = 500;
 
         spinnerPosition = Console.CursorLeft;
 
-        while(timer.Elapsed.TotalSeconds <= totalSeconds)
+        DateTime futureTime = GetFutureTime(5);
+
+        while(DateTime.Now < futureTime)
         {
             char[] spinChars = new char[]{'|','/','-','\\'};
             foreach (char spinChar in spinChars)
             {
                 Console.CursorLeft = spinnerPosition;
                 Console.Write(spinChar);
-                System.Threading.Thread.Sleep(spinWait);
+                Thread.Sleep(spinWait);
             }
         }
         Console.CursorLeft = spinnerPosition;
         Console.Write(" ");
-        timer.Stop();
     }
 
     public void GenerateCountdownTimer(int totalSeconds)
@@ -118,13 +116,10 @@ public class Activity
         Console.WriteLine("Get Ready...");
         GenerateSpinner(5);
     }
-    public DateTime GetFutureTime()
-    {
-        DateTime startTime = new DateTime();
-        startTime = DateTime.Now;
-        
+    public DateTime GetFutureTime(int duration)
+    {   
         DateTime futureTime = new DateTime();
-        futureTime = startTime.AddSeconds(_duration);
+        futureTime = DateTime.Now.AddSeconds(duration);
 
         return futureTime;
     }
@@ -136,6 +131,4 @@ public class Activity
         return currentTime;
     }
 
-
-    
 }

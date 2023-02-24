@@ -8,7 +8,7 @@ public class BreathingActivity : Activity
     }
     public void PromptBreathing()
     {
-        DateTime futureTime = GetFutureTime();
+        DateTime futureTime = GetFutureTime(GetDuration());
         DateTime currentTime = GetCurrentTime();
         
         Console.WriteLine();

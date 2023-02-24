@@ -32,7 +32,7 @@ public class ListingActivity : Activity
         GenerateCountdownTimer(5);
         Console.WriteLine();
                 
-        DateTime futureTime = GetFutureTime();
+        DateTime futureTime = GetFutureTime(GetDuration());
         DateTime currentTime = GetCurrentTime();
 
         while (currentTime <= futureTime)

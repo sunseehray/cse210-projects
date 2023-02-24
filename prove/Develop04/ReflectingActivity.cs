@@ -49,7 +49,7 @@ public class ReflectingActivity : Activity
         Console.ReadLine();
         Console.Clear();
         
-        DateTime futureTime = GetFutureTime();
+        DateTime futureTime = GetFutureTime(GetDuration());
         DateTime currentTime = GetCurrentTime();
 
         while (currentTime <= futureTime)
