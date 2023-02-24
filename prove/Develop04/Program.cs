@@ -40,9 +40,7 @@ class Program
                 activity.PromptBreathing();
                 activity.EndActivity();
 
-                breathingLog++;
-                DisplayLog();
-                
+                breathingLog++;                
             } 
             // Reflecting
             else if (input == "2")
