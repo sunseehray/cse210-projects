@@ -97,26 +97,19 @@ public class Activity
 
     public void GenerateCountdownTimer(int totalSeconds)
     {
-        Stopwatch timer = new Stopwatch();
-        timer.Start();
-
         int timerPosition = 25;
         int timerWait = 1000;
 
         timerPosition = Console.CursorLeft;
 
-        while(timer.Elapsed.TotalSeconds <= totalSeconds)
+        for (int i = 0; i <= totalSeconds; i++)
         {
-            for (int i = 0; i <= totalSeconds; i++)
-            {
-                Console.CursorLeft = timerPosition;
-                Console.Write(totalSeconds - i);
-                System.Threading.Thread.Sleep(timerWait);
-            }
+            Console.CursorLeft = timerPosition;
+            Console.Write(totalSeconds - i);
+            Thread.Sleep(timerWait);
         }
         Console.CursorLeft = timerPosition;
         Console.Write(" ");
-        timer.Stop();
     }
 
     public void GetReady()
