@@ -26,7 +26,7 @@ public class Goal
     public virtual string DisplaySummary() {
         return "";
     }
-    public void SetBasePoints() {
-        
+    public void SetBasePoints(int basePoints) {
+        _basePoints = basePoints;
     }
 }
