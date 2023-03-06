@@ -2,18 +2,33 @@ using System;
 
 public class SimpleGoal : Goal
 {
-    private int _simplePoints;
-
+    private int _accumulatedPoints;
+    public SimpleGoal()
+    {
+        _accumulatedPoints = 0;
+    }
     public override void CreateGoal()
     {
         StartCreateGoal();
-        Console.Write("What is the amount of points associated with this goal? ");
-        string simplePointsString = Console.ReadLine();
-        SetSimplePoints(Convert.ToInt32(simplePointsString));
     }
 
-    public void SetSimplePoints(int simplePoints)
+    public override void RecordEvent()
     {
-        _simplePoints = simplePoints;
+        SetStatusSymbol("X");
+        _accumulatedPoints += GetBasePoints();
+    }
+
+    public override bool IsComplete() 
+    {
+        int simplePoints = GetBasePoints();
+        if (_accumulatedPoints >= simplePoints) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    public override void DisplayGoal()
+    {
+        Console.WriteLine($"[{GetStatusSymbol()}] {GetName()} ({GetDescription()}) | {_accumulatedPoints} points");
     }
 }

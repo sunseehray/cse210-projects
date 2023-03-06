@@ -2,5 +2,12 @@ using System;
 
 public class GoalsTracker
 {
-    List<Goal> _goals = new List<Goal>();
+    private List<Goal> _goals = new List<Goal>();
+
+    public void ListGoals()
+    {
+        foreach (Goal goal in _goals) {
+            goal.DisplayGoal();
+        }
+    }
 }

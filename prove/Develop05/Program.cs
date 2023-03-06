@@ -7,7 +7,7 @@ class Program
         Console.WriteLine("Hello Develop05 World!");
         // initiate variables
         string menuSelected = "";
-        List<Goal> goals = new List<Goal>();
+        GoalsTracker goals = new GoalsTracker();
 
         // int test = 0;
         while (menuSelected != "6") {
