@@ -16,18 +16,22 @@ public class EternalGoal : Goal
     {
         
     }
-    public override void CreateGoal()
+    public override void CreateChildGoal()
     {
-        InitCreateGoal();
+        // call the base method for creating a goal
+        CreateBaseGoal();
         
+        //  get number of bonus steps to earn bonus points
         Console.Write("How many steps to earn bonus points? ");
         string bonusSteps = Console.ReadLine();
         _bonusSteps = Convert.ToInt32(bonusSteps);
 
+        // get points earned for achieving bonus steps
         Console.Write("How many bonus points awarded if bonus steps are met? ");
         string bonusPoints = Console.ReadLine();
         _bonusPoints = Convert.ToInt32(bonusPoints);
 
+        // initiate bonusStepsCompleted to 0
         _bonusStepsCompleted = 0;
     }
 

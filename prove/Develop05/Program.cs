@@ -20,8 +20,10 @@ class Program
 
         // Until user sets his menu option to 6, the program will continue to display the menu options.
         while (menuSelected != "6") {
+            //update TotalAGP if ever user saves or loads
+            int points = goals.CalculateTotalAGP();
             // Display the total points so far of the goals. If this is the initial load, then it should be 0.
-            Console.WriteLine($"You have points.");
+            Console.WriteLine($"You have {points} points.");
             Console.WriteLine();
             Console.WriteLine("Menu Options:");
             Console.WriteLine("  1. Create New Goal");
