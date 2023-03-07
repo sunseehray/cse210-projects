@@ -35,4 +35,9 @@ public class EternalGoal : Goal
         _bonusStepsCompleted = 0;
     }
 
+    public override void ListGoal()
+    {
+        Console.Write($"[{_statusSymbol}] {_name} ({_description})");
+    }
+
 }

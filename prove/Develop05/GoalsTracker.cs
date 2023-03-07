@@ -4,7 +4,7 @@ public class GoalsTracker
 // This class helps keep track of all the goals recorded, calculates the total points from all of these goals
 // It also displays a list of the goals and their details.
 {
-    public List<Goal> _goals = new List<Goal>();
+    private List<Goal> _goals = new List<Goal>();
 
     public void ListGoals()
     // Display the list of goals in a particular format

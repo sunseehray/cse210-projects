@@ -4,7 +4,7 @@ public class ChecklistGoal : Goal
 {
     private int _checklistPoints;
     private int _checklistSteps;
-    private int _checlistStepsCompleted;
+    private int _checklistStepsCompleted;
 
     public override void CreateChildGoal()
     {
@@ -21,6 +21,11 @@ public class ChecklistGoal : Goal
     public override void RecordEvent()
     {
 
+    }
+
+    public override void ListGoal()
+    {
+        Console.Write($"[{_statusSymbol}] {_name} ({_description}) -- Currently Completed {_checklistStepsCompleted}/{_checklistSteps}");
     }
 
 }
