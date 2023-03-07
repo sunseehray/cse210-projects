@@ -32,6 +32,15 @@ public class SimpleGoal : Goal
         _accumulatedPoints += _goalPoints;
     }
 
+    public override bool IsComplete()
+    {
+        if (_accumulatedPoints >= _goalPoints) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     // method to call when listing a goal of this type
     public override void ListGoal()
     {

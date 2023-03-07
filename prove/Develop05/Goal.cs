@@ -23,7 +23,7 @@ public class Goal
         _goalPoints = goalPoints;
     }
 
-    public void CreateBaseGoal() 
+    protected void CreateBaseGoal() 
     {   
         Console.Write("What is the name of your goal? ");
         _name = Console.ReadLine();

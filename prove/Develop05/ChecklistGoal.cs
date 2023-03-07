@@ -17,6 +17,17 @@ public class ChecklistGoal : Goal
         _checklistSteps = Convert.ToInt32(stringChecklistSteps);
 
     }
+
+    // check if goal is complete
+    public override bool IsComplete() 
+    {
+        if (_checklistStepsCompleted >= _checklistSteps) {
+            _statusSymbol = "X";
+            return true;
+        } else {
+            return false;
+        }
+    }
     
     public override void RecordEvent()
     {
