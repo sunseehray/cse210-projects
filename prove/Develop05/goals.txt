@@ -1,0 +1,4 @@
+0
+SimpleGoal|Test1|Description here|100|False
+SimpleGoal|Test2|Description again|200|False
+SimpleGoal|Test3|Description here again yeah|150|False

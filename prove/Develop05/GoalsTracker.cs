@@ -30,7 +30,7 @@ public class GoalsTracker
     }
 
     // taken from the Journal assignment, still needs modification for Goal Tracker
-    public void LoadJournal()
+    public void LoadGGoals()
     {
         _goals.Clear(); 
 
@@ -46,7 +46,8 @@ public class GoalsTracker
             string[] parts = lines[i].Split("|");
 
             if (parts[0] == "SimpleGoal") {
-                SimpleGoal simpleGoal = new SimpleGoal(parts[1], parts[2], Convert.ToInt32(parts[3]), Convert.ToBoolean(parts[5]));
+                SimpleGoal simpleGoal = new SimpleGoal(parts[1], parts[2], Convert.ToInt32(parts[3]), Convert.ToBoolean(parts[4]));
+                _goals.Add(simpleGoal);
                    
             }
         }

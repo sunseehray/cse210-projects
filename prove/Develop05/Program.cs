@@ -63,11 +63,13 @@ class Program
 
             } else if (menuSelected == "3") {
                 // save goals
+                goals.SaveGoals();
             } else if (menuSelected == "4") {
                 // load goals
+                goals.LoadGGoals();
             } else if (menuSelected == "5") {
                 // record event
-                
+
             } else if (menuSelected == "6") {
                 // exit
                 Environment.Exit(0);
