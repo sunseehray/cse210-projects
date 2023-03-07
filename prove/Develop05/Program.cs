@@ -1,16 +1,26 @@
 using System;
 
 class Program
+// The program helps users track their goals. It has the option to create, list, save, and load goals. It also records events when a goal is met.
+// For creating goals, the Goal class will be used. It's child classes will help in modifying behaviors for the different goal types.
+// For making a list of the goals, it will make use of the GoalsTracker class.
+// Saving and loading goals will be used with the help of the FileProcessor class.
+// For recording events, the Goal class will also be used.
 {
     static void Main(string[] args)
     {
         Console.WriteLine("Hello Develop05 World!");
         // initiate variables
+
+        //this variable will hold the user's input for the menu option. For now, I will leave it blank.
         string menuSelected = "";
+
+        // Here's initiating the list of goals for the program to work on.
         GoalsTracker goals = new GoalsTracker();
 
-        // int test = 0;
+        // Until user sets his menu option to 6, the program will continue to display the menu options.
         while (menuSelected != "6") {
+            // Display the total points so far of the goals. If this is the initial load, then it should be 0.
             Console.WriteLine($"You have points.");
             Console.WriteLine();
             Console.WriteLine("Menu Options:");

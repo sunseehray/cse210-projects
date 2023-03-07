@@ -2,33 +2,39 @@ using System;
 
 public class SimpleGoal : Goal
 {
-    private int _accumulatedPoints;
+    // constructor for testing
     public SimpleGoal()
     {
+        _name = "Name of Simple Goal";
+        _description = "Description of Simple Goal";
+        _goalPoints = 50;
         _accumulatedPoints = 0;
-    }
-    public override void CreateGoal()
-    {
-        StartCreateGoal();
+        _statusSymbol = " ";
     }
 
+    // constructor for specifiying attributes
+    public SimpleGoal(string name, string description, int goalPoints)
+    {
+        _accumulatedPoints = 0;
+        _statusSymbol = " ";
+    }
+
+    // method to call when creating a goal of this type
+    public override void CreateChildGoal()
+    {
+        CreateBaseGoal();
+    }
+
+    // method to call when recording an event of this type
     public override void RecordEvent()
     {
-        SetStatusSymbol("X");
-        _accumulatedPoints += GetBasePoints();
+        _statusSymbol = "X";
+        _accumulatedPoints += _goalPoints;
     }
 
-    public override bool IsComplete() 
+    // method to call when listing a goal of this type
+    public override void ListGoal()
     {
-        int simplePoints = GetBasePoints();
-        if (_accumulatedPoints >= simplePoints) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-    public override void DisplayGoal()
-    {
-        Console.WriteLine($"[{GetStatusSymbol()}] {GetName()} ({GetDescription()}) | {_accumulatedPoints} points");
+        Console.WriteLine($"[{_statusSymbol}] {_name} ({_description}) | {_accumulatedPoints} points");
     }
 }
