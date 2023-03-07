@@ -67,6 +67,7 @@ class Program
                 // load goals
             } else if (menuSelected == "5") {
                 // record event
+                
             } else if (menuSelected == "6") {
                 // exit
                 Environment.Exit(0);

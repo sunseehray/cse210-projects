@@ -8,15 +8,16 @@ public class SimpleGoal : Goal
         _name = "Name of Simple Goal";
         _description = "Description of Simple Goal";
         _goalPoints = 50;
-        _accumulatedPoints = 0;
-        _statusSymbol = " ";
+        _status = false;
     }
 
     // constructor for specifiying attributes
-    public SimpleGoal(string name, string description, int goalPoints)
+    public SimpleGoal(string name, string description, int goalPoints, bool status)
     {
-        _accumulatedPoints = 0;
-        _statusSymbol = " ";
+        _name = name;
+        _description = description;
+        _goalPoints = goalPoints;
+        _status = status;
     }
 
     // method to call when creating a goal of this type
@@ -28,13 +29,12 @@ public class SimpleGoal : Goal
     // method to call when recording an event of this type
     public override void RecordEvent()
     {
-        _statusSymbol = "X";
-        _accumulatedPoints += _goalPoints;
+        _status = true;
     }
 
     public override bool IsComplete()
     {
-        if (_accumulatedPoints >= _goalPoints) {
+        if (_status == true) {
             return true;
         } else {
             return false;
@@ -44,13 +44,33 @@ public class SimpleGoal : Goal
     // method to call when listing a goal of this type
     public override void ListGoal()
     {
-        Console.Write($"[{_statusSymbol}] {_name} ({_description})");
+        string statusSymbol = "";
+        bool status = IsComplete();
+        if (status == true) {
+            statusSymbol = "X";
+        } else {
+            statusSymbol = " ";
+        }
+        Console.Write($"[{statusSymbol}] {_name} ({_description})");
     }
     
     // calculate the accumulated goal points
     public override int CalculateAGP()
     {
-        int accumulatedGP = _accumulatedPoints;
-        return accumulatedGP;
+        bool status = IsComplete();
+        int aGP = 0;
+        if (status == true) {
+            aGP = _goalPoints;
+        } else {
+            aGP = 0;
+        }
+        return aGP;
+    }
+
+    public override string SaveGoal()
+    {
+        string line = "";
+        line = $"SimpleGoal|{_name}|{_description}|{_goalPoints}|{IsComplete().ToString()}";
+        return line;
     }
 }

@@ -2,9 +2,25 @@ using System;
 
 public class ChecklistGoal : Goal
 {
-    private int _checklistPoints;
-    private int _checklistSteps;
-    private int _checklistStepsCompleted;
+    private int _bonusPoints;
+    private int _steps;
+    private int _stepCounter;
+
+    public ChecklistGoal()
+    {
+
+    }
+
+    public ChecklistGoal(string name, string description, int goalPoints, bool status, int bonusPoints, int steps, int stepCounter)
+    {
+        _name = name;
+        _description = description;
+        _goalPoints = goalPoints;
+        _status = status;
+        _bonusPoints = bonusPoints;
+        _steps = steps;
+        _stepCounter = stepCounter;
+    }
 
     public override void CreateChildGoal()
     {
@@ -14,15 +30,22 @@ public class ChecklistGoal : Goal
         // get the number of steps to achieve the goal
         Console.Write("How many times does this goal need to be accomplished for a bonus? ");
         string stringChecklistSteps = Console.ReadLine();
-        _checklistSteps = Convert.ToInt32(stringChecklistSteps);
+        _steps = Convert.ToInt32(stringChecklistSteps);
+
+        // get the bonus points for accomplishing it that many times
+        Console.Write("What is the bonus for accomplishing it that many times? ");
+        string bonusPoints = Console.ReadLine();
+        _bonusPoints = Convert.ToInt32(bonusPoints);
+
+        // initiate value upon creation
+        _stepCounter = 0;
 
     }
 
     // check if goal is complete
     public override bool IsComplete() 
     {
-        if (_checklistStepsCompleted >= _checklistSteps) {
-            _statusSymbol = "X";
+        if (_stepCounter >= _steps) {
             return true;
         } else {
             return false;
@@ -31,12 +54,36 @@ public class ChecklistGoal : Goal
     
     public override void RecordEvent()
     {
+        _stepCounter ++;
+    }
+
+    public override int CalculateAGP()
+    {
+        int points = 0;
+
+        points = _stepCounter * _goalPoints;
+
+        bool status = IsComplete();
+
+        if (status == true) {
+            points += _bonusPoints;
+        }
+
+        return points;
 
     }
 
     public override void ListGoal()
     {
-        Console.Write($"[{_statusSymbol}] {_name} ({_description}) -- Currently Completed {_checklistStepsCompleted}/{_checklistSteps}");
+        string statusSymbol = "";
+        bool status = IsComplete();
+        if (status == true) {
+            statusSymbol = "X";
+        } else {
+            statusSymbol = " ";
+        }
+
+        Console.Write($"[{statusSymbol}] {_name} ({_description}) -- Currently Completed {_stepCounter}/{_steps}");
     }
 
 }

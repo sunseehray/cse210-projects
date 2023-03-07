@@ -2,42 +2,59 @@ using System;
 
 public class EternalGoal : Goal
 {
-    private int _bonusPoints;
-    private int _bonusSteps;
-    private int _bonusStepsCompleted;
+    private int _stepCounter;
 
-    public EternalGoal()
+    public EternalGoal(string name, string description, int goalPoints, int stepCounter)
     {
-        _name = "This is an eternal goal";
-        _description = "This is the description of an eternal goal";
-        _goalPoints = 50;
-    }
-    public EternalGoal(string name, string description, string goalPoints, int bonusPoints, int bonusSteps)
-    {
-        
+        _name = name;
+        _description = description;
+        _goalPoints = goalPoints;
+        _stepCounter = stepCounter;
     }
     public override void CreateChildGoal()
     {
         // call the base method for creating a goal
         CreateBaseGoal();
         
+        // STRETCH
         //  get number of bonus steps to earn bonus points
-        Console.Write("How many steps to earn bonus points? ");
-        string bonusSteps = Console.ReadLine();
-        _bonusSteps = Convert.ToInt32(bonusSteps);
+        // Console.Write("How many steps to earn bonus points? ");
+        // string bonusSteps = Console.ReadLine();
+        // _bonusSteps = Convert.ToInt32(bonusSteps);
 
         // get points earned for achieving bonus steps
-        Console.Write("How many bonus points awarded if bonus steps are met? ");
-        string bonusPoints = Console.ReadLine();
-        _bonusPoints = Convert.ToInt32(bonusPoints);
+        // Console.Write("How many bonus points awarded if bonus steps are met? ");
+        // string bonusPoints = Console.ReadLine();
+        // _bonusPoints = Convert.ToInt32(bonusPoints);
 
         // initiate bonusStepsCompleted to 0
-        _bonusStepsCompleted = 0;
+        // _bonusStepsCompleted = 0;
     }
 
     public override void ListGoal()
     {
-        Console.Write($"[{_statusSymbol}] {_name} ({_description})");
+        Console.Write($"[ ] {_name} ({_description})");
     }
 
+    public override bool IsComplete()
+    {
+        return false;
+    }
+
+    public override string SaveGoal()
+    {
+        string line = "";
+        line = $"EternalGoal|" + _name + "|" + _description + "|" + _goalPoints;
+        return line;
+    }
+
+    public override void RecordEvent()
+    {
+        _stepCounter ++;
+    }
+    public override int CalculateAGP()
+    {
+        int points = _goalPoints * _stepCounter;
+        return points;
+    }
 }
