@@ -2,7 +2,6 @@ using System;
 
 public class Goal
 {
-    protected string _nameQuestion = "What is the name of your goal? ";
     protected string _name;
     protected string _description;
     protected int _goalPoints;
@@ -55,5 +54,10 @@ public class Goal
     public virtual void ListGoal() 
     {
 
+    }
+
+    public virtual int CalculateAGP()
+    {
+        return 0;
     }
 }

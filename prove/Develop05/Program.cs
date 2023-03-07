@@ -47,6 +47,9 @@ class Program
                 string goalType = Console.ReadLine();
 
                 if (goalType == "1") {
+                    SimpleGoal newSimpleGoal = new SimpleGoal();
+                    newSimpleGoal.CreateChildGoal();
+                    goals.addGoal(newSimpleGoal);
                     
                 } else if (goalType == "2") {
 
@@ -56,6 +59,7 @@ class Program
 
             } else if (menuSelected == "2") {
                 // list goals
+                goals.ListGoals();
 
             } else if (menuSelected == "3") {
                 // save goals

@@ -35,6 +35,13 @@ public class SimpleGoal : Goal
     // method to call when listing a goal of this type
     public override void ListGoal()
     {
-        Console.WriteLine($"[{_statusSymbol}] {_name} ({_description}) | {_accumulatedPoints} points");
+        Console.Write($"[{_statusSymbol}] {_name} ({_description})");
+    }
+    
+    // calculate the accumulated goal points
+    public override int CalculateAGP()
+    {
+        int accumulatedGP = _accumulatedPoints;
+        return accumulatedGP;
     }
 }
