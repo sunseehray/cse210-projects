@@ -29,7 +29,11 @@ public class SimpleGoal : Goal
     // method to call when recording an event of this type
     public override void RecordEvent()
     {
-        _status = true;
+        if (_status == false) {
+            _status = true;
+        } else {
+            Console.WriteLine("You have already completed this goal.");
+        }
     }
 
     public override bool IsComplete()

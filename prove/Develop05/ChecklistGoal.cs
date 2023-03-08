@@ -11,12 +11,11 @@ public class ChecklistGoal : Goal
 
     }
 
-    public ChecklistGoal(string name, string description, int goalPoints, bool status, int bonusPoints, int steps, int stepCounter)
+    public ChecklistGoal(string name, string description, int goalPoints, int bonusPoints, int steps, int stepCounter)
     {
         _name = name;
         _description = description;
         _goalPoints = goalPoints;
-        _status = status;
         _bonusPoints = bonusPoints;
         _steps = steps;
         _stepCounter = stepCounter;
@@ -84,6 +83,13 @@ public class ChecklistGoal : Goal
         }
 
         Console.Write($"[{statusSymbol}] {_name} ({_description}) -- Currently Completed {_stepCounter}/{_steps}");
+    }
+
+    public override string SaveGoal()
+    {
+        string line = "";
+        line = $"ChecklistGoal|" + _name + "|" + _description + "|" + _goalPoints.ToString() + "|" + _bonusPoints.ToString() + "|" + _steps.ToString() + "|" + _stepCounter.ToString();
+        return line;
     }
 
 }

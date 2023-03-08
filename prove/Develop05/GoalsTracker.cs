@@ -19,7 +19,8 @@ public class GoalsTracker
         using (StreamWriter outputFile = new StreamWriter(fileName))
         {
             // save first line with totalAGP
-            outputFile.WriteLine(_accumulatedPoints.ToString());
+            int totalAGP = CalculateTotalAGP();
+            outputFile.WriteLine(totalAGP.ToString());
             
             // save subsequent lines with goals
             foreach(Goal goal in _goals)
@@ -30,7 +31,7 @@ public class GoalsTracker
     }
 
     // taken from the Journal assignment, still needs modification for Goal Tracker
-    public void LoadGGoals()
+    public void LoadGoals()
     {
         _goals.Clear(); 
 
@@ -46,9 +47,24 @@ public class GoalsTracker
             string[] parts = lines[i].Split("|");
 
             if (parts[0] == "SimpleGoal") {
+
+                // name, description, goalPoints, status
                 SimpleGoal simpleGoal = new SimpleGoal(parts[1], parts[2], Convert.ToInt32(parts[3]), Convert.ToBoolean(parts[4]));
-                _goals.Add(simpleGoal);
-                   
+                _goals.Add(simpleGoal);             
+
+            } else if (parts[0] == "EternalGoal") {
+
+                // name, description, goalPoints, status, stepCounter
+                EternalGoal eternalGoal = new EternalGoal(parts[1], parts[2], Convert.ToInt32(parts[3]));
+                _goals.Add(eternalGoal);
+
+            } else if (parts[0] == "ChecklistGoal") {
+                
+                //  _name + "|" + _description + "|" + _goalPoints.ToString() + "|" + _bonusPoints.ToString() + "|" + _steps.ToString() + "|" + _stepCounter.ToString()
+                // string name, string description, int goalPoints, int bonusPoints, int steps, int stepCounter
+                ChecklistGoal checklistGoal = new ChecklistGoal(parts[1], parts[2], Convert.ToInt32(parts[3]), Convert.ToInt32(parts[4]), Convert.ToInt32(parts[5]), Convert.ToInt32(parts[6]));
+                _goals.Add(checklistGoal);
+
             }
         }
 
@@ -88,8 +104,31 @@ public class GoalsTracker
         return totalAGP;
     }
 
-    public void RecordEvent()
+    public void RecordEventInTracker()
+    // help user choose which goal to update
     {
-        Console.WriteLine();
+        string goalIndex = "";
+        Console.Write("Which goal did you accomplish? ");
+        goalIndex = Console.ReadLine();
+        int goalIndexInt = Convert.ToInt32(goalIndex) - 1;
+
+        // record event but check if it has been completed
+        if (_goals[goalIndexInt].IsComplete() == false) {
+
+            _goals[goalIndexInt].RecordEvent();
+
+            int pointsEarned = _goals[goalIndexInt].CalculateAGP();
+
+            // update accumulatedPoints
+            _accumulatedPoints = CalculateTotalAGP();
+
+            Console.WriteLine($"Congratulations! You have earned {pointsEarned.ToString()} points!");
+            Console.WriteLine($"You now have {_accumulatedPoints} points");
+
+        } else {
+
+            Console.WriteLine("You have already completed this goal.");
+
+        }
     }
 }

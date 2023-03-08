@@ -4,12 +4,19 @@ public class EternalGoal : Goal
 {
     private int _stepCounter;
 
-    public EternalGoal(string name, string description, int goalPoints, int stepCounter)
+    public EternalGoal()
+    {
+        _name = "";
+        _description = "";
+        _goalPoints = 50;
+        _stepCounter = 0;
+    }
+    public EternalGoal(string name, string description, int goalPoints)
     {
         _name = name;
         _description = description;
         _goalPoints = goalPoints;
-        _stepCounter = stepCounter;
+        _stepCounter = 0;
     }
     public override void CreateChildGoal()
     {
@@ -44,16 +51,18 @@ public class EternalGoal : Goal
     public override string SaveGoal()
     {
         string line = "";
-        line = $"EternalGoal|" + _name + "|" + _description + "|" + _goalPoints;
+        line = $"EternalGoal|" + _name + "|" + _description + "|" + _goalPoints.ToString();
         return line;
     }
 
     public override void RecordEvent()
     {
+        // maybe for stretch?
         _stepCounter ++;
     }
     public override int CalculateAGP()
     {
+        // what if they update multiple times in one session?
         int points = _goalPoints * _stepCounter;
         return points;
     }

@@ -52,9 +52,14 @@ class Program
                     goals.addGoal(newSimpleGoal);
                     
                 } else if (goalType == "2") {
+                    EternalGoal newEternalGoal = new EternalGoal();
+                    newEternalGoal.CreateChildGoal();
+                    goals.addGoal(newEternalGoal);
 
                 } else if (goalType == "3") {
- 
+                    ChecklistGoal newChecklistGoal = new ChecklistGoal();
+                    newChecklistGoal.CreateChildGoal();
+                    goals.addGoal(newChecklistGoal);
                 }
 
             } else if (menuSelected == "2") {
@@ -66,10 +71,10 @@ class Program
                 goals.SaveGoals();
             } else if (menuSelected == "4") {
                 // load goals
-                goals.LoadGGoals();
+                goals.LoadGoals();
             } else if (menuSelected == "5") {
                 // record event
-
+                goals.RecordEventInTracker();
             } else if (menuSelected == "6") {
                 // exit
                 Environment.Exit(0);
