@@ -8,7 +8,7 @@ public class GoalsTracker
     private List<Goal> _goals = new List<Goal>();
 
     // total accumulated goal points
-    private int _accumulatedPoints;
+    private int _accumulatedPoints = 0;
 
    public void SaveGoals()
     {
@@ -68,8 +68,6 @@ public class GoalsTracker
             }
         }
 
-        
-
     }
 
     public void ListGoals()
@@ -93,7 +91,7 @@ public class GoalsTracker
     public int CalculateTotalAGP()
     // returns the sum of the accumulated points for all goals in the current list.
     {
-        int totalAGP = 0;
+        int totalAGP = _accumulatedPoints;
         foreach(Goal goal in _goals) {
             totalAGP += goal.CalculateAGP();
         }

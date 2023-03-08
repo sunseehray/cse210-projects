@@ -63,7 +63,7 @@ public class EternalGoal : Goal
     public override int CalculateAGP()
     {
         // what if they update multiple times in one session?
-        int points = _goalPoints * _stepCounter;
+        int points = _goalPoints;
         return points;
     }
 }
