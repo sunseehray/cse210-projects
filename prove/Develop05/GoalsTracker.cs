@@ -10,6 +10,12 @@ public class GoalsTracker
     // total accumulated goal points
     private int _accumulatedPoints = 0;
 
+    public int GetAccumulatedPoints() {
+
+        int points = _accumulatedPoints;
+        return points;
+
+    }
    public void SaveGoals()
     {
         string fileName = "";
@@ -19,7 +25,7 @@ public class GoalsTracker
         using (StreamWriter outputFile = new StreamWriter(fileName))
         {
             // save first line with totalAGP
-            int totalAGP = CalculateTotalAGP();
+            int totalAGP = GetAccumulatedPoints();
             outputFile.WriteLine(totalAGP.ToString());
             
             // save subsequent lines with goals
@@ -118,7 +124,7 @@ public class GoalsTracker
             int pointsEarned = _goals[goalIndexInt].CalculateAGP();
 
             // update accumulatedPoints
-            _accumulatedPoints = CalculateTotalAGP();
+            _accumulatedPoints += pointsEarned;
 
             Console.WriteLine($"Congratulations! You have earned {pointsEarned.ToString()} points!");
             Console.WriteLine($"You now have {_accumulatedPoints} points");
