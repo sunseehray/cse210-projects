@@ -1,4 +1,7 @@
-1100
+1330
 SimpleGoal|Give a talk|Speak in Sacrament meeting when asked|100|True
 EternalGoal|Study the scriptures|Study for at least 10 minutes|50
 ChecklistGoal|Attend the temple|Attend and perform any ordinance|50|500|3|3
+EternalGoal|Exercise|Exercise for 15 minutes|75
+SimpleGoal|Bring dog to vet|Bring Chip to vet for deworming|30|True
+ChecklistGoal|Read CHAOS Cure|Read 10 chapters of CHAOS Cure|25|100|10|2
