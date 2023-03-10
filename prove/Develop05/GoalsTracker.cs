@@ -60,7 +60,7 @@ public class GoalsTracker
 
             } else if (parts[0] == "EternalGoal") {
 
-                // name, description, goalPoints, status, stepCounter
+                // name, description, goalPoints
                 EternalGoal eternalGoal = new EternalGoal(parts[1], parts[2], Convert.ToInt32(parts[3]));
                 _goals.Add(eternalGoal);
 
