@@ -75,6 +75,7 @@ class Program
             } else if (menuSelected == "5") {
                 // record event
                 goals.RecordEventInTracker();
+                // creativity - users cannot update a goal that has already been completed. He will be notifed, "This goal has already been completed."
             } else if (menuSelected == "6") {
                 // exit
                 Environment.Exit(0);
