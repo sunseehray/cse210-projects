@@ -28,7 +28,7 @@ class Program
         Comment video2Comment1 = new Comment("Donna","thanks to both of you! You both make it happen for yourselves and live a creative and intentional life together.");
         video2.ListComment(video2Comment1);
 
-        Comment video2Comment2 = new Comment("Natasha Rose", " I had to laugh when you explained how your candle collection tripled in size in 24 hours. It’s funny how we experience abundance with the things we really love - I had a similar experience with my herbal tea collection. 🥰");
+        Comment video2Comment2 = new Comment("Natasha Rose", " I had to laugh when you explained how your candle collection tripled in size in 24 hours. It’s funny how we experience abundance with the things we really love - I had a similar experience with my herbal tea collection.");
         video2.ListComment(video2Comment2);
 
         Comment video2Comment3 = new Comment("Dawn Bodine", "I absolutely loved the frozen items you hung outside!! So adorable");
