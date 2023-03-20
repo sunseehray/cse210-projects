@@ -37,10 +37,10 @@ public class Order
 
     public string GeneratePackingLabel()
     {
-        string packingLabel = "";
+        string packingLabel = "PACKING LABEL\n";
 
         foreach (Product p in _products) {
-            packingLabel += p.GetName() + "-" + p.GetProductID() + "\n";
+            packingLabel += p.GetName() + " - " + p.GetProductID() + "\n";
         }
 
         return packingLabel;
@@ -48,9 +48,26 @@ public class Order
 
     public string GenerateShippingLabel()
     {
-        string shippingLabel = "";
+        string shippingLabel = "SHIPPING LABEL\n";
 
         shippingLabel += _customer.GetName() + "\n" + _customer.GenerateAddress();
         return shippingLabel;
+    }
+
+    public void DisplayResults()
+    {
+        Console.WriteLine("*");
+
+        string packingLabel = GeneratePackingLabel();
+        string shippingLabel = GenerateShippingLabel();
+        double totalPrice = CalculateTotalPrice();
+
+        Console.WriteLine(packingLabel);
+        Console.WriteLine(shippingLabel);
+        Console.WriteLine();
+        Console.WriteLine($"Total Cost = ${totalPrice}");
+
+        Console.WriteLine("*");
+
     }
 }
