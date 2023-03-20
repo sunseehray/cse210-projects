@@ -26,7 +26,7 @@ public class Address
 
     public string GenerateAddress()
     {
-        string address = _street + ", " + _city + ", " + _state + ", " + _country;
+        string address = _street + ", " + _city + "\n" + _state + ", " + _country;
         return address;
     }
 }

@@ -19,4 +19,15 @@ public class Customer
             return false;
         }
     }
+    
+    public string GetName()
+    {
+        return _name;
+    }
+
+    public string GenerateAddress()
+    {
+        string generatedAddress = _address.GenerateAddress();
+        return generatedAddress;
+    }
 }
