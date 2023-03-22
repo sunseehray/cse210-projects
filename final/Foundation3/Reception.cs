@@ -21,15 +21,12 @@ public class Reception : Event
     public void GenerateDetailedReception()
     {
         GenerateDetailed();
-        Console.WriteLine();
         Console.WriteLine($"RSVP: {_email}");
-        Console.WriteLine();
     }
     public void GenerateShortReception()
     {
-        Console.Write("Event Type: ");
-        ReturnEventType();
+        string eventType = ReturnEventType();
+        Console.WriteLine($"Event Type: {eventType}");
         GenerateShort();
-        Console.WriteLine();
     }
 }

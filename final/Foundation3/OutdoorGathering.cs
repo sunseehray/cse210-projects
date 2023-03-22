@@ -24,14 +24,14 @@ public class OutdoorGathering : Event
     }
     public void GenerateDetailedOutdoorGathering()
     {
+        string weatherStatement = GenerateWeatherStatement();
         GenerateDetailed();
-        Console.WriteLine($"Statement of the Weather: {GenerateWeatherStatement()}");
-        Console.WriteLine();
+        Console.WriteLine($"Statement of the Weather: {weatherStatement}");
     }
     public void GenerateShortOutdoorGathering()
     {
-        Console.Write("Event Type: ");
-        ReturnEventType();
+        string eventType = ReturnEventType();
+        Console.Write($"Event Type: {eventType}");
         GenerateShort();
     }
 }
