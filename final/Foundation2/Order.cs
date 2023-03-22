@@ -68,6 +68,7 @@ public class Order
         Console.WriteLine($"Total Cost = ${totalPrice}");
 
         Console.WriteLine("*");
+        Console.WriteLine();
 
     }
 }
