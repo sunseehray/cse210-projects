@@ -16,6 +16,8 @@ public class Event
         _time = time;
         _address = address;
     }
+
+    // change these back to string then use that string for display!
     public void GenerateStandard()
     {
         Console.WriteLine($"Title: {_title}");
