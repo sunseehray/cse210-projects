@@ -18,21 +18,23 @@ public class Event
     }
 
     // change these back to string then use that string for display!
-    public void GenerateStandard()
+    public string GenerateStandard()
     {
-        Console.WriteLine($"Title: {_title}");
-        Console.WriteLine($"Description: {_description}");
-        Console.WriteLine($"{_date} | {_time}");
+        string standard = "Title: " + _title + "\n";
+        standard += "Description: " + _description + "\n";
+        standard += _date + " | " + _time + "\n";
+
         string address = _address.GenerateCompleteAddress();
-        Console.WriteLine($"{address}");
+        standard += address;
+
+        return standard;
     }
-    public void GenerateDetailed()
-    {   
-        GenerateStandard();
-    }
-    public void GenerateShort()
+    
+    public string GenerateShort()
     {
-        Console.WriteLine($"Title: {_title}");
-        Console.WriteLine($"{_date}");
+        string shortM = "Title: " +_title + "\n";
+        shortM += _date + "\n";
+        
+        return shortM;
     }
 }

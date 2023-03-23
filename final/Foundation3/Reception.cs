@@ -18,15 +18,20 @@ public class Reception : Event
         return "Reception";
     }
 
-    public void GenerateDetailedReception()
+    public string GenerateDetailedReception()
     {
-        GenerateDetailed();
-        Console.WriteLine($"RSVP: {_email}");
+        string detailed = GenerateStandard() + "\n";
+        detailed += "RSVP: " + _email;
+
+        return detailed;
     }
-    public void GenerateShortReception()
+    public string GenerateShortReception()
     {
+        string shortReception = "";
         string eventType = ReturnEventType();
-        Console.WriteLine($"Event Type: {eventType}");
-        GenerateShort();
+        shortReception += "Event Type: " + eventType + "\n";
+        shortReception += GenerateShort();
+
+        return shortReception;
     }
 }

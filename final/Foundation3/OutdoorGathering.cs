@@ -20,18 +20,27 @@ public class OutdoorGathering : Event
 
     public string ReturnEventType()
     {
-        return "OutdoorGathering";
+        return "Outdoor Gathering";
     }
-    public void GenerateDetailedOutdoorGathering()
+    public string GenerateDetailedOutdoorGathering()
     {
+        string detailed = "";
+        
         string weatherStatement = GenerateWeatherStatement();
-        GenerateDetailed();
-        Console.WriteLine($"Statement of the Weather: {weatherStatement}");
+        
+        detailed += GenerateStandard() + "\n";
+        detailed += "Statement of the Weather: " + weatherStatement;
+        
+        return detailed;
     }
-    public void GenerateShortOutdoorGathering()
+    public string GenerateShortOutdoorGathering()
     {
+        string shortOG = "";
         string eventType = ReturnEventType();
-        Console.Write($"Event Type: {eventType}");
-        GenerateShort();
+
+        shortOG += "Event Type: " + eventType + "\n";
+        shortOG += GenerateShort();
+
+        return shortOG;
     }
 }

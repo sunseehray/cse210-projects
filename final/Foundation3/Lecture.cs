@@ -24,18 +24,24 @@ public class Lecture : Event
         return "Lecture";
     }
 
-    public void GenerateDetailedLecture()
+    public string GenerateDetailedLecture()
     {
-        GenerateDetailed();
-        Console.WriteLine($"Speaker: {_speaker}");
-        Console.WriteLine($"Capacity: {_capacity} pax");
+        string detailed = GenerateStandard() + "\n";
+        detailed += "Speaker: " + _speaker + "\n";
+        detailed += "Capacity: " + _capacity +  " pax";
+
+        return detailed;
     }
 
-    public void GenerateShortLecture()
+    public string GenerateShortLecture()
     {
+        string shortLecture = "";
         string eventType = ReturnEventType();
-        Console.WriteLine($"Event Type: {eventType}");
-        GenerateShort();
+
+        shortLecture += "Event Type: " + eventType + "\n";
+        shortLecture += GenerateShort();
+
+        return shortLecture;
     }
     
 }
