@@ -7,7 +7,7 @@ public class Video
     private double _length;
     private List<Comment> _comments = new List<Comment>();
    
-   // add comments as a list
+   // add comments as a list?
     public Video(string title, string author, double length)
     {
         _title = title;

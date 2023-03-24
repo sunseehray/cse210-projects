@@ -11,6 +11,17 @@ public class Order
         _customer = customer;
     }
 
+    public double CalculateShipping()
+    {
+        double shippingCost = 0;
+        if (_customer.isFromUSA() == true) {
+            shippingCost = 5;
+        } else {
+            shippingCost = 35;
+        }
+        return shippingCost;
+    }
+
     public double CalculateTotalPrice()
     {
         double totalprice = 0;
@@ -22,12 +33,7 @@ public class Order
         }
 
         // calculate shipping cost
-        double shippingCost = 0;
-        if (_customer.isFromUSA() == true) {
-            shippingCost = 5;
-        } else {
-            shippingCost = 35;
-        }
+        double shippingCost = CalculateShipping();
 
         // calculate total price with shipping cost
         totalprice += shippingCost;
@@ -55,21 +61,28 @@ public class Order
         return shippingLabel;
     }
 
+    public string GenerateTotalCost()
+    {
+        string totalCost = "\nTOTAL COST:\n";
+        double totalPrice = CalculateTotalPrice();
+        foreach (Product p in _products) {
+            totalCost += p.GetName() + " (" + p.GetProductID() + ") - " + "$" + p.GetPrice() + " x " + p.GetQuantity() + " = " + p.CalculatePrice() + "\n";
+        }
+        totalCost += "Shipping Cost: " + "$" + CalculateShipping() + "\n";
+        totalCost += "TOTAL COST: $" + CalculateTotalPrice();
+        
+        return totalCost;
+    }
+
     public void DisplayResults()
     {
-        Console.WriteLine("*");
-
         string packingLabel = GeneratePackingLabel();
         string shippingLabel = GenerateShippingLabel();
-        double totalPrice = CalculateTotalPrice();
+        string totalCost = GenerateTotalCost();
 
         Console.WriteLine(packingLabel);
         Console.WriteLine(shippingLabel);
-        Console.WriteLine();
-        Console.WriteLine($"Total Cost = ${totalPrice}");
-
-        Console.WriteLine("*");
-        Console.WriteLine();
-
+        Console.WriteLine(totalCost);
+        Console.WriteLine("--------END OF ORDER---------");
     }
 }

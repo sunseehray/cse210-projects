@@ -27,4 +27,14 @@ public class Product
     {
         return _productID;
     }
+
+    public double GetPrice()
+    {
+        return _price;
+    }
+
+    public int GetQuantity()
+    {
+        return _quantity;
+    }
 }
