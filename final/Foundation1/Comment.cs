@@ -4,12 +4,6 @@ public class Comment
 {
     private string _name;
     private string _text;
-    public Comment()
-    {
-        _name = "John Smith";
-        _text = "This is a comment.";
-    }
-
     public Comment(string name, string text)
     {
         _name = name;

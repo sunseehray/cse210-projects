@@ -6,12 +6,8 @@ public class Video
     private string _author;
     private double _length;
     private List<Comment> _comments = new List<Comment>();
-    public Video()
-    {
-        _title = "This is a title";
-        _author = "Jane Doe";
-        _length = 25;
-    }
+   
+   // add comments as a list
     public Video(string title, string author, double length)
     {
         _title = title;

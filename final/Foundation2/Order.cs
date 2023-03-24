@@ -51,6 +51,7 @@ public class Order
         string shippingLabel = "SHIPPING LABEL\n";
 
         shippingLabel += _customer.GetName() + "\n" + _customer.GenerateAddress();
+        
         return shippingLabel;
     }
 
