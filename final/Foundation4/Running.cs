@@ -6,6 +6,7 @@ public class Running : Exercise
 
     public Running(string date, int minutes, double distance) : base(date, minutes)
     {
+        _name = "Running";
         _distance = distance;
     }
 
@@ -22,11 +23,5 @@ public class Running : Exercise
     {
         double pace = _minutes / _distance;
         return pace;
-    }
-    public override string GetSummary()
-    {
-        string summary = $"{_date} Running ({_minutes} min)- Distance {_distance} km, Speed: {CalculateSpeed()} kph, Pace: {CalculatePace()} min per km";
-
-        return summary;
     }
 }

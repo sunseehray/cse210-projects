@@ -4,6 +4,7 @@ public class Exercise
 {
     protected string _date;
     protected int _minutes;
+    protected string _name;
 
     public Exercise(string date, int minutes)
     {
@@ -26,8 +27,9 @@ public class Exercise
         return 0;
     }
 
-    public virtual string GetSummary()
+    public string GetSummary()
     {
-        return "";
+        string summary = $"{_date} {_name} ({_minutes} min)- Distance {CalculateDistance()} km, Speed: {CalculateSpeed()} kph, Pace: {CalculatePace()} min per km";
+        return summary;
     }
 }

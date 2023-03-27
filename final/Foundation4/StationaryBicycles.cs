@@ -6,23 +6,22 @@ public class StationaryBicycles : Exercise
 
     public StationaryBicycles(string date, int minutes, double speed) : base(date, minutes)
     {
+        _name = "Stationary Bicycles";
         _speed = speed;
     }
 
     public override double CalculateDistance()
     {
-        return base.CalculateDistance();
+        double distance = _speed * _minutes / 60;
+        return distance;
     }
     public override double CalculateSpeed()
     {
-        return base.CalculateSpeed();
+        return _speed;
     }
     public override double CalculatePace()
     {
-        return base.CalculatePace();
-    }
-    public override string GetSummary()
-    {
-        return base.GetSummary();
+        double pace = 60 / _speed;
+        return pace;
     }
 }
