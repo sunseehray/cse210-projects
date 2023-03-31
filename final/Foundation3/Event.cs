@@ -32,7 +32,7 @@ public class Event
     
     public string GenerateShort()
     {
-        string shortM = "Title: " +_title + "\n";
+        string shortM = "Title: " + _title + "\n";
         shortM += _date + "\n";
         
         return shortM;
